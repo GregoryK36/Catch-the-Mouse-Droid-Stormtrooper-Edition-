@@ -18,7 +18,7 @@ class Thrawn:
         scale_size = (self.image_size[0] * .3, self.image_size[1] * .3)
         self.image = pygame.transform.scale(self.image, scale_size)
 
-    def move_balloon(self, direction):
+    def move_direction(self, direction):
         if direction == "right":
             self.x = self.x + self.delta
         if direction == "left":
