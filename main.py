@@ -1,4 +1,6 @@
 import pygame
+import time
+import os
 import random
 pygame.init()
 pygame.font.init()
@@ -12,8 +14,12 @@ bg = pygame.image.load("background.png")
 b = Thrawn(500, 500)
 c = Chopper(500, 500)
 m = Max(600, 600)
+current_time = time.time()
 run = True
 while run:
+  time_elapsed = time.time()
+  time_finale = "Time elapsed:" + str(round(time_elapsed - current_time, 2))
+  time_final = my_font.render(str(time_finale), True, (255, 255, 255))
   keys = pygame.key.get_pressed()  # checking pressed keys
   if keys[pygame.K_d]:
       b.move_direction("right")
@@ -41,6 +47,7 @@ while run:
         screen.blit(c.image, c.rect)
         screen.blit(m.image, m.rect)
         screen.blit(bg, (0, 0))
+        screen.blit(time_final, (10, 270))
         pygame.display.update()
 
 
