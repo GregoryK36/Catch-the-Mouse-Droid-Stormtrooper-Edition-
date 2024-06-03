@@ -1,6 +1,5 @@
 import pygame
 import time
-import os
 import random
 pygame.init()
 pygame.font.init()
@@ -10,17 +9,23 @@ screen = pygame.display.set_mode(size)
 from grandadmiralthrawn import Thrawn
 from chopper import Chopper
 from mousedroid import Max
+my_font = pygame.font.SysFont('Arial', 15)
 bg = pygame.image.load("background.png")
 b = Thrawn(500, 500)
 c = Chopper(500, 500)
 m = Max(600, 600)
 current_time = time.time()
+
 run = True
+
 while run:
   time_elapsed = time.time()
   time_finale = "Time elapsed:" + str(round(time_elapsed - current_time, 2))
   time_final = my_font.render(str(time_finale), True, (255, 255, 255))
+
   keys = pygame.key.get_pressed()  # checking pressed keys
+
+
   if keys[pygame.K_d]:
       b.move_direction("right")
       #c.move_direction("right")
