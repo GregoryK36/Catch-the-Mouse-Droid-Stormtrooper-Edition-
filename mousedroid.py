@@ -15,7 +15,7 @@ class Max:
 
     def rescale_image(self, image):
         self.image_size = self.image.get_size()
-        scale_size = (self.image_size[0] * 1.1, self.image_size[1] * 1.1)
+        scale_size = (self.image_size[0] * 0.9, self.image_size[1] * 0.9)
         self.image = pygame.transform.scale(self.image, scale_size)
 
     def move_direction(self, direction):
@@ -27,4 +27,9 @@ class Max:
             self.y = self.y - self.delta
         if direction == "down":
             self.y = self.y + self.delta
+        self.rect = pygame.Rect(self.x, self.y, self.image_size[0], self.image_size[1])
+
+    def set_location(self, new_x, new_y):
+        self.x = new_x
+        self.y = new_y
         self.rect = pygame.Rect(self.x, self.y, self.image_size[0], self.image_size[1])
